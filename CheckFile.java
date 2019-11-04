@@ -7,10 +7,14 @@ import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class CheckFile {
-    public static void main(String[] args)  {
+    public static void main(String[] args) throws IOException {
 
         System.out.println("Write file path");
-        //  Read input \Users\Cube\Desktop\kolo.jpg
+        /*  Read input
+        \Users\Cube\Desktop\kolo.jpg
+        \Users\Cube\Desktop\kwadrat.gif
+         */
+
         Scanner terminalInput = new Scanner(System.in);
         File file = new File(terminalInput.nextLine());
 
@@ -18,19 +22,18 @@ public class CheckFile {
 
         int i = file.toString().lastIndexOf('.');
         if (i > 0) {
-            extension = file.toString().substring(i+1);
-        }
-        else
+            extension = file.toString().substring(i + 1);
+        } else
             System.out.println("Please attach correct file!");
 
         System.out.println(extension);
 
-        if(extension.equals("jpg") || extension.equals("jpeg")){
+        if (extension.equals("jpg") || extension.equals("jpeg")) {
             IfJPG ifjpg = new IfJPG(file);
+        } else if (extension.equals("gif")) {
+            IfGIF ifgif = new IfGIF(file);
         }
 
     }
-
-
 }
 

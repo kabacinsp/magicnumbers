@@ -20,9 +20,9 @@ public class IfJPG {
         String jpgFile = bytesToHex(fileContent);
         int lenIPG = jpgFile.length();
 
-        if(jpgFile.substring(0,4).equals("ffd8") && jpgFile.substring(lenIPG-4,lenIPG).equals("ffd9")){
+        if (jpgFile.substring(0, 4).equals("ffd8") && jpgFile.substring(lenIPG - 4, lenIPG).equals("ffd9")) {
             System.out.println("This is JPEG file");
-        }else{
+        } else {
             System.out.println("This is not JPEG file, please attach correct file!");
         }
     }
