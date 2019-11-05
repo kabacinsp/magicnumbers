@@ -13,6 +13,7 @@ public class CheckFile {
         /*  Read input
         \Users\Cube\Desktop\kolo.jpg
         \Users\Cube\Desktop\kwadrat.gif
+        \Users\Cube\Desktop\trojkat.txt
          */
 
         Scanner terminalInput = new Scanner(System.in);
@@ -32,6 +33,8 @@ public class CheckFile {
             IfJPG ifjpg = new IfJPG(file);
         } else if (extension.equals("gif")) {
             IfGIF ifgif = new IfGIF(file);
+        } else if (extension.equals("txt")){
+            IfTXT iftxt = new IfTXT(file);
         }
 
     }
