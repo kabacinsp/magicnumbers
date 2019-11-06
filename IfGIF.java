@@ -7,7 +7,7 @@ import java.nio.file.InvalidPathException;
 
 public class IfGIF {
 
-    public IfGIF(File file) throws IOException {
+    public IfGIF(File file, int o) throws IOException {
         byte[] fileContent = new byte[0];
         try {
             fileContent = Files.readAllBytes(file.toPath());
@@ -21,9 +21,13 @@ public class IfGIF {
         int lenGIF = gifFile.length();
 
         if (lenGIF > 6 && (gifFile.substring(0, 6).equals("GIF89a") || gifFile.substring(0, 6).equals("GIF87a"))) {
-            System.out.println(" but the file format is GIF");
+            if (o == 0) {
+                System.out.println(" and so it is");
+            } else
+                System.out.println(", but the file format is GIF");
         } else {
-            IsItGoodFile isitgoodfile = new IsItGoodFile("txt", false, file);
+            ++o;
+            IsItGoodFile isitgoodfile = new IsItGoodFile(o, file);
         }
     }
 

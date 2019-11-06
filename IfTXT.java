@@ -12,7 +12,7 @@ public class IfTXT {
     I decided to use the MIME check
     https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types
      */
-    public IfTXT(File file) throws IOException {
+    public IfTXT(File file, int o) throws IOException {
         String fileContent = "new byte[0]";
         try {
             fileContent = Files.probeContentType(file.toPath());
@@ -24,9 +24,13 @@ public class IfTXT {
         }
 
         if (fileContent.equals("text/plain") || fileContent.equals("text/csv") || fileContent.equals("text/html")) {
-            System.out.println(" but the file format is TXT");
+            if (o == 0) {
+                System.out.println(" and so it is");
+            } else
+                System.out.println(", but the file format is TXT");
         } else {
-            IsItGoodFile isitgoodfile = new IsItGoodFile("txt", false, file);
+            o++;
+            IsItGoodFile isitgoodfile = new IsItGoodFile(o , file);
         }
     }
 }
