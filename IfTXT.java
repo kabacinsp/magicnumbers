@@ -1,9 +1,8 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.nio.file.InvalidPathException;
 
 public class IfTXT {
 
@@ -20,15 +19,14 @@ public class IfTXT {
         } catch (
                 FileNotFoundException exc) {
             System.out.println("File not was founded");
-        } catch (
-                IOException e) {
+        } catch (InvalidPathException | IOException eip) {
             System.out.println("IO error");
         }
 
         if (fileContent.equals("text/plain") || fileContent.equals("text/csv") || fileContent.equals("text/html")) {
-            System.out.println("This is TXT file");
+            System.out.println(" but the file format is TXT");
         } else {
-            System.out.println("This is not TXT file, please attach correct file!");
+            IsItGoodFile isitgoodfile = new IsItGoodFile("txt", false, file);
         }
     }
 }

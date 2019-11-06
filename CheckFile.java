@@ -1,9 +1,5 @@
 
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
 import java.io.*;
-import java.nio.file.Files;
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class CheckFile {
@@ -17,7 +13,8 @@ public class CheckFile {
          */
 
         Scanner terminalInput = new Scanner(System.in);
-        File file = new File(terminalInput.nextLine());
+        File file;
+        file = new File(terminalInput.nextLine());
 
         String extension = "";
 
@@ -27,16 +24,8 @@ public class CheckFile {
         } else
             System.out.println("Please attach correct file!");
 
-        System.out.println(extension);
-
-        if (extension.equals("jpg") || extension.equals("jpeg")) {
-            IfJPG ifjpg = new IfJPG(file);
-        } else if (extension.equals("gif")) {
-            IfGIF ifgif = new IfGIF(file);
-        } else if (extension.equals("txt")){
-            IfTXT iftxt = new IfTXT(file);
-        }
-
+        System.out.print("This should be " + extension.toUpperCase() + " format");
+        IsItGoodFile isitgooffile = new IsItGoodFile(file, extension);
     }
 }
 
