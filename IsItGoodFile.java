@@ -1,3 +1,9 @@
+package logic;
+
+import logic.IfGIF;
+import logic.IfJPG;
+import logic.IfTXT;
+
 import java.io.File;
 import java.io.IOException;
 
@@ -16,7 +22,7 @@ public class IsItGoodFile {
         } else if (extension.equals("txt")) {
             IfTXT iftxt = new IfTXT(file, 0);
         } else
-            System.out.println("Extension not supported, please contact support");
+            System.out.println("Extension not supported, please contact with support");
     }
 
 
